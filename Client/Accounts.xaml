@@ -1,0 +1,58 @@
+﻿<Page x:Class="Client.Accounts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Accounts"
+      Background="White">
+
+    <Grid Margin="20">
+        <!-- Define rows for the Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Create Account Section -->
+        <GroupBox Header="Create Account" Grid.Row="0">
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBox x:Name="UserIdInput" Text="Enter User ID" Margin="0,5"/>
+                <TextBox x:Name="BalanceInput" Text="Enter Starting Balance"/>
+                <Button x:Name="CreateNewAcc" Content="Create Account" Width="150" Margin="0,10,0,0" Click="CreateNewAcc_Click"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Retrieve & Manage Account Section -->
+        <GroupBox Header="Manage Account" Grid.Row="1" Margin="0,20,0,0">
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBox x:Name="AccountIdInput" Text="Enter Account ID to manage" />
+                <Button x:Name="RetrieveAccDetailsBtn" Content="Retrieve Account" Width="150" Margin="0,10,0,0" Click="RetrieveAccDetailsBtn_Click"/>
+
+                <!-- Display Account Details -->
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBlock Text="Account ID: " VerticalAlignment="Center" Width="125"/>
+                    <TextBox x:Name="DisplayAccountIdBox" Width="200" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBlock Text="Account Holder Name: " VerticalAlignment="Center" Width="125"/>
+                    <TextBox x:Name="DisplayAccountHolderBox" Width="200" IsReadOnly="True"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <TextBlock Text="Balance: " VerticalAlignment="Center" Width="125"/>
+                    <TextBox x:Name="DisplayBalanceBox" Width="200" IsReadOnly="True"/>
+                </StackPanel>
+
+                <!-- Edit Account Details -->
+                <!---<TextBox Name="EditUserId" Text="Edit User ID" Margin="0,5,0,0" />-->
+                <TextBox x:Name="EditBalance" Text="Edit Balance" Margin="0,5,0,0" />
+                <Button x:Name="UpdateAccountBtn" Content="Update Account Details" Width="200" Margin="0,10,0,0" Click="UpdateAccountBtn_Click"/>
+                <Button x:Name="DeleteAccBtn" Content="Delete Account" Width="150" Margin="0,10,0,0" Background="Red" Foreground="White" Click="DeleteAccBtn_Click"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Page>
+
+

@@ -1,0 +1,61 @@
+﻿<Page x:Class="Client.Transactions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Transactions"
+      Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Transaction Details -->
+        <GroupBox Header="Transaction Details" Grid.Row="0">
+            <StackPanel Orientation="Vertical" Margin="10">
+                
+
+                <!-- Transaction Operations -->
+                <StackPanel Orientation="Horizontal" Margin="0,10,5,0">
+                    <TextBlock Text="Account Number: " VerticalAlignment="Center" Margin="0,0,5,0" Width="100"/>
+                    <TextBox x:Name="AccountNumberBox" Width="150" Text="Enter Account Number" Margin="0,0,5,0"/>
+                    <TextBox x:Name="TransactionAmountBox" Width="150" Text="Amount" Margin="0,0,5,0"/>
+                    <Button x:Name="DepositButton" Content="Deposit" Width="100" Margin="0,0,5,0" Click="DepositButton_Click"/>
+                    <Button x:Name="WithdrawButton" Content="Withdraw" Width="100" Click="WithdrawButton_Click"/>
+                </StackPanel>
+                <!-- Initial Details -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Initial Balance: " VerticalAlignment="Center" Margin="0,5,5,0" Width="100"/>
+                    <TextBox x:Name="InitialBalanceBox" Width="150"  IsReadOnly="True" Margin="0,5,5,0"/>
+                </StackPanel>
+                <!-- Account Details -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Updated Balance: " VerticalAlignment="Center" Margin="0,5,5,0" Width="100"/>
+                    <TextBox x:Name="BalanceBox" Width="150" IsReadOnly="True" Margin="0,5,5,0"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Transaction History -->
+        <GroupBox Header="Transaction History" Grid.Row="1" Margin="0,10,0,0">
+            <ListView x:Name="TransactionListView" Height="275">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Transaction ID" DisplayMemberBinding="{Binding TransactionId}" Width="100"/>
+                        <GridViewColumn Header="Account ID" DisplayMemberBinding="{Binding AccountId}" Width="100"/>
+                        <GridViewColumn Header="Type" DisplayMemberBinding="{Binding TransactionType}" Width="80"/>
+                        <GridViewColumn Header="Amount" DisplayMemberBinding="{Binding Amount}" Width="80"/>
+                        <GridViewColumn Header="Date" DisplayMemberBinding="{Binding TransactionDate}" Width="120"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+    </Grid>
+</Page>
+
